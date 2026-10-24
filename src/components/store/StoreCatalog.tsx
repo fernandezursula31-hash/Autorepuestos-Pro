@@ -3,7 +3,7 @@ import { useApp } from '../../context/AppContext';
 import { Product, ProductCategory } from '../../types';
 import { ProductCard } from './ProductCard';
 import { VehicleSelector } from './VehicleSelector';
-import { Filter, SlidersHorizontal, ShieldCheck, Award, Wrench, RefreshCw, Clock, Calendar } from 'lucide-react';
+import { Filter, SlidersHorizontal, ShieldCheck, Award, Wrench, RefreshCw } from 'lucide-react';
 
 interface StoreCatalogProps {
   onOpenDetails: (product: Product) => void;
@@ -68,7 +68,7 @@ export const StoreCatalog: React.FC<StoreCatalogProps> = ({ onOpenDetails }) => 
   });
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+    <div id="catalogo-repuestos" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 scroll-mt-20">
       {/* Vehicle Garage Filter Tool */}
       <div className="mb-10">
         <VehicleSelector />
@@ -182,66 +182,6 @@ export const StoreCatalog: React.FC<StoreCatalogProps> = ({ onOpenDetails }) => 
             <p className="text-xs text-slate-400 leading-relaxed">
               Nuestro equipo de mecánicos e ingenieros automotrices responde en tiempo real tus dudas sobre especificaciones de torque, fluidos y dimensiones.
             </p>
-          </div>
-        </div>
-
-        {/* Horarios de Atención - Directamente debajo de la información de repuestos y accesorios */}
-        <div className="mt-8 p-6 sm:p-8 rounded-2xl bg-gradient-to-r from-slate-900/95 via-slate-900/80 to-slate-950/95 border border-amber-500/30 backdrop-blur-md shadow-2xl">
-          <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6">
-            <div className="space-y-2">
-              <div className="flex items-center gap-2">
-                <span className="p-1.5 rounded-lg bg-amber-500/15 border border-amber-500/30 text-amber-400">
-                  <Clock className="w-4 h-4" />
-                </span>
-                <span className="font-display font-bold text-xs uppercase tracking-wider text-amber-400">
-                  Horarios de Atención
-                </span>
-                <span className="text-slate-600">·</span>
-                <span className="text-xs text-slate-400 font-mono">Mostrador & Despachos de Repuestos</span>
-              </div>
-              <h3 className="font-display font-bold text-lg text-white">
-                Atención personalizada en tienda física y pedidos en línea
-              </h3>
-              <p className="text-xs text-slate-400 max-w-xl leading-relaxed">
-                Para consultas técnicas de repuestos, retiro en almacén y despachos el mismo día, nuestro equipo opera en los siguientes horarios:
-              </p>
-            </div>
-
-            {/* Schedule Cards */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 shrink-0 lg:min-w-[460px]">
-              {/* Lunes a viernes */}
-              <div className="p-3.5 rounded-xl bg-slate-950/80 border border-slate-800/90 hover:border-amber-500/40 transition-colors">
-                <div className="flex items-center gap-2 text-slate-300 text-xs mb-1">
-                  <span className="w-2 h-2 rounded-full bg-amber-400 shrink-0" />
-                  <span className="font-semibold text-slate-200">Lunes a viernes:</span>
-                </div>
-                <div className="text-sm font-bold font-mono text-amber-300 pl-4">
-                  8:30 a.m. – 6:00 p.m.
-                </div>
-              </div>
-
-              {/* Sábado */}
-              <div className="p-3.5 rounded-xl bg-slate-950/80 border border-slate-800/90 hover:border-amber-500/40 transition-colors">
-                <div className="flex items-center gap-2 text-slate-300 text-xs mb-1">
-                  <span className="w-2 h-2 rounded-full bg-amber-400 shrink-0" />
-                  <span className="font-semibold text-slate-200">Sábado:</span>
-                </div>
-                <div className="text-sm font-bold font-mono text-amber-300 pl-4">
-                  8:30 a.m. – 1:30 p.m.
-                </div>
-              </div>
-
-              {/* Domingo */}
-              <div className="p-3.5 rounded-xl bg-slate-950/80 border border-slate-800/90 hover:border-rose-500/40 transition-colors">
-                <div className="flex items-center gap-2 text-slate-400 text-xs mb-1">
-                  <span className="w-2 h-2 rounded-full bg-rose-500 shrink-0" />
-                  <span className="font-medium text-slate-400">Domingo:</span>
-                </div>
-                <div className="text-sm font-bold font-mono text-rose-400 pl-4">
-                  Cerrado
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </section>

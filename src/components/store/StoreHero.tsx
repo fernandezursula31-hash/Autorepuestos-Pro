@@ -1,4 +1,4 @@
-import { Search, ShieldCheck, Zap, Truck, Check, Sparkles, Tag, Clock } from 'lucide-react';
+import { Search, ShieldCheck, Zap, Truck, Check, Sparkles, Tag } from 'lucide-react';
 import { useApp } from '../../context/AppContext';
 
 interface StoreHeroProps {
@@ -33,62 +33,9 @@ export const StoreHero: React.FC<StoreHeroProps> = ({ onOpenRegister }) => {
               Repuestos y accesorios de ingeniería para tu auto
             </h1>
 
-            <p className="text-base sm:text-lg text-slate-300 mb-5 max-w-xl leading-relaxed">
+            <p className="text-base sm:text-lg text-slate-300 mb-6 max-w-xl leading-relaxed">
               Encuentra kits de frenos cerámicos, suspensión regulable, sistemas de turboalimentación y consumibles de alto rendimiento con validación de compatibilidad exacta.
             </p>
-
-            {/* Horarios de Atención - Ubicado directamente debajo de la información de repuestos y accesorios */}
-            <div className="mb-6 p-4 rounded-xl bg-slate-900/90 border border-slate-800/90 shadow-xl backdrop-blur-md max-w-xl">
-              <div className="flex items-center justify-between gap-2 mb-3 pb-2.5 border-b border-slate-800">
-                <div className="flex items-center gap-2">
-                  <div className="w-6 h-6 rounded-md bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400">
-                    <Clock className="w-3.5 h-3.5" />
-                  </div>
-                  <span className="font-display font-bold text-xs uppercase tracking-wider text-white">
-                    Horarios de Atención
-                  </span>
-                </div>
-                <div className="flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-[11px] text-emerald-400 font-medium font-mono">
-                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                  Mostrador & Despacho
-                </div>
-              </div>
-
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 text-xs">
-                {/* Lunes a viernes */}
-                <div className="p-2.5 rounded-lg bg-slate-950/70 border border-slate-800/70">
-                  <div className="flex items-center gap-1.5 text-slate-400 text-[11px] mb-1">
-                    <span className="w-1.5 h-1.5 rounded-full bg-amber-400 shrink-0" />
-                    <span>Lunes a viernes:</span>
-                  </div>
-                  <div className="font-mono font-bold text-white text-xs pl-3">
-                    8:30 a.m. – 6:00 p.m.
-                  </div>
-                </div>
-
-                {/* Sábado */}
-                <div className="p-2.5 rounded-lg bg-slate-950/70 border border-slate-800/70">
-                  <div className="flex items-center gap-1.5 text-slate-400 text-[11px] mb-1">
-                    <span className="w-1.5 h-1.5 rounded-full bg-amber-400 shrink-0" />
-                    <span>Sábado:</span>
-                  </div>
-                  <div className="font-mono font-bold text-white text-xs pl-3">
-                    8:30 a.m. – 1:30 p.m.
-                  </div>
-                </div>
-
-                {/* Domingo */}
-                <div className="p-2.5 rounded-lg bg-slate-950/70 border border-slate-800/70">
-                  <div className="flex items-center gap-1.5 text-slate-400 text-[11px] mb-1">
-                    <span className="w-1.5 h-1.5 rounded-full bg-rose-400 shrink-0" />
-                    <span>Domingo:</span>
-                  </div>
-                  <div className="font-mono font-bold text-rose-400 text-xs pl-3">
-                    Cerrado
-                  </div>
-                </div>
-              </div>
-            </div>
 
             {/* Quick Search */}
             <div className="relative max-w-xl mb-6">

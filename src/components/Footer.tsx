@@ -1,5 +1,5 @@
 import React from 'react';
-import { Wrench, Phone, Mail, MapPin, Clock } from 'lucide-react';
+import { Wrench, Phone, Mail, MapPin, ShieldCheck } from 'lucide-react';
 import { useApp } from '../context/AppContext';
 
 export const Footer: React.FC = () => {
@@ -76,28 +76,38 @@ export const Footer: React.FC = () => {
                   Faros Bi-LED Laser
                 </button>
               </li>
+              <li>
+                <button
+                  onClick={() => {
+                    setActiveMode('store');
+                    setTimeout(() => {
+                      const el = document.getElementById('nosotros-mision-vision');
+                      if (el) el.scrollIntoView({ behavior: 'smooth' });
+                    }, 50);
+                  }}
+                  className="text-amber-400 hover:text-amber-300 font-semibold transition-colors flex items-center gap-1"
+                >
+                  <span>Misión, Visión & Servicios</span>
+                </button>
+              </li>
             </ul>
           </div>
 
-          {/* Customer Service & Hours */}
+          {/* Customer Service & Location */}
           <div className="space-y-2.5">
-            <h4 className="font-semibold text-white uppercase tracking-wider text-[11px]">Horarios de Atención</h4>
-            <div className="space-y-2 text-xs">
-              <div className="flex items-start gap-2 text-slate-300">
-                <Clock className="w-3.5 h-3.5 text-amber-500 shrink-0 mt-0.5" />
-                <div className="space-y-1">
-                  <div className="text-slate-300"><span className="text-white font-medium">• Lunes a viernes:</span> 8:30 a.m. – 6:00 p.m.</div>
-                  <div className="text-slate-300"><span className="text-white font-medium">• Sábado:</span> 8:30 a.m. – 1:30 p.m.</div>
-                  <div className="text-slate-400"><span className="text-slate-300 font-medium">• Domingo:</span> <span className="text-rose-400 font-semibold">Cerrado</span></div>
-                </div>
-              </div>
-              <div className="flex items-center gap-2 text-slate-400 pt-1 border-t border-slate-900">
+            <h4 className="font-semibold text-white uppercase tracking-wider text-[11px]">Contacto & Asistencia</h4>
+            <div className="space-y-2.5 text-xs">
+              <div className="flex items-center gap-2 text-slate-400">
                 <MapPin className="w-3.5 h-3.5 text-amber-500 shrink-0" />
                 <span>Bodega Central: Parque Industrial Norte #42</span>
               </div>
               <div className="flex items-center gap-2 text-slate-400">
                 <Phone className="w-3.5 h-3.5 text-amber-500 shrink-0" />
-                <span>Atención: +52 (55) 4192-8831</span>
+                <span>Línea Telefónica: +52 (55) 4192-8831</span>
+              </div>
+              <div className="flex items-center gap-2 text-slate-400">
+                <Mail className="w-3.5 h-3.5 text-amber-500 shrink-0" />
+                <span>Atención: soporte@autorepuestospro.com</span>
               </div>
             </div>
           </div>

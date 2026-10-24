@@ -116,6 +116,18 @@ export const Navbar: React.FC<NavbarProps> = ({
               Motor & Turbo
             </button>
             <button 
+              onClick={() => {
+                setActiveMode('store');
+                setTimeout(() => {
+                  const el = document.getElementById('nosotros-mision-vision');
+                  if (el) el.scrollIntoView({ behavior: 'smooth' });
+                }, 50);
+              }}
+              className="hover:text-amber-400 transition-colors whitespace-nowrap shrink-0 text-amber-300 font-semibold"
+            >
+              Misión & Servicios
+            </button>
+            <button 
               onClick={onOpenChat}
               className="relative hover:text-amber-400 transition-colors whitespace-nowrap shrink-0 flex items-center gap-1.5"
             >

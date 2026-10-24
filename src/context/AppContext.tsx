@@ -47,7 +47,7 @@ interface AppContextType {
   
   // User Authentication & Roles
   currentUser: AuthUser | null;
-  loginWithEmail: (email: string, password?: string) => boolean;
+  loginWithEmail: (email: string, password?: string, name?: string) => boolean;
   logout: () => void;
 
   // Registration & 10% Discount
@@ -227,12 +227,17 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
     }
   }, []);
 
-  const loginWithEmail = (email: string, _password?: string): boolean => {
+  const loginWithEmail = (email: string, _password?: string, name?: string): boolean => {
     const normalized = email.trim().toLowerCase();
+    if (!normalized || !normalized.includes('@') || normalized.indexOf('.') === -1) {
+      showToast('Por favor introduce un correo electrónico válido (ejemplo: usuario@correo.com)', 'warning');
+      return false;
+    }
+
     if (normalized === 'fernandezursula31@gmail.com') {
       const user: AuthUser = {
         email: 'fernandezursula31@gmail.com',
-        name: 'Ursula Fernandez',
+        name: name?.trim() || 'Ursula Fernandez',
         role: 'admin',
         phone: '+52 55 4192 8831',
         vehicle: 'Toyota Supra GR 2024 / Mazda RX-7'
@@ -249,16 +254,17 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
       setDiscountCode('BIENVENIDO10');
       localStorage.setItem('arp_auth_user', JSON.stringify(user));
       localStorage.setItem('arp_is_registered', 'true');
-      showToast(`¡Sesión iniciada con éxito como Ursula Fernandez (${user.email})!`, 'success');
+      showToast(`¡Bienvenida Administradora, Ursula Fernandez (${user.email})!`, 'success');
       return true;
     } else {
-      const namePart = normalized.split('@')[0];
+      const rawName = name?.trim();
+      const namePart = rawName || normalized.split('@')[0];
       const formattedName = namePart.charAt(0).toUpperCase() + namePart.slice(1);
       const user: AuthUser = {
         email: normalized,
         name: formattedName,
         role: 'customer',
-        vehicle: 'Auto Personal'
+        vehicle: 'Auto Registrado'
       };
       setCurrentUser(user);
       setIsRegistered(true);
@@ -270,7 +276,8 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
       setDiscountApplied(true);
       setDiscountCode('BIENVENIDO10');
       localStorage.setItem('arp_auth_user', JSON.stringify(user));
-      showToast(`¡Sesión iniciada con ${user.email}!`, 'success');
+      localStorage.setItem('arp_is_registered', 'true');
+      showToast(`¡Sesión iniciada con éxito! Bienvenido(a) ${formattedName} (10% OFF activo)`, 'success');
       return true;
     }
   };

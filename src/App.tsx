@@ -3,6 +3,7 @@ import { AppProvider, useApp } from './context/AppContext';
 import { Navbar } from './components/Navbar';
 import { StoreHero } from './components/store/StoreHero';
 import { StoreCatalog } from './components/store/StoreCatalog';
+import { CompanyProfileSection } from './components/store/CompanyProfileSection';
 import { ProductModal } from './components/store/ProductModal';
 import { CartDrawer } from './components/store/CartDrawer';
 import { CheckoutModal } from './components/store/CheckoutModal';
@@ -45,6 +46,7 @@ const MainLayout: React.FC = () => {
           <>
             <StoreHero onOpenRegister={() => setIsRegisterOpen(true)} />
             <StoreCatalog onOpenDetails={(prod) => setSelectedProduct(prod)} />
+            <CompanyProfileSection onOpenChat={() => setIsChatOpen(true)} />
           </>
         ) : (
           <AdminDashboard />

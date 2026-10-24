@@ -83,10 +83,10 @@ export const CustomerChatWidget: React.FC<CustomerChatWidgetProps> = ({ isOpen, 
           {/* Quick Consultation Suggestions */}
           <div className="px-4 py-2 bg-slate-950/60 border-b border-slate-800/60 flex gap-1.5 overflow-x-auto text-[11px] no-scrollbar">
             <button
-              onClick={() => handleQuickQuestion('¿Cuáles son sus horarios de atención al cliente?')}
+              onClick={() => handleQuickQuestion('¿Cómo aplico mi cupón de 10% de descuento en la compra?')}
               className="px-2.5 py-1 bg-amber-500/15 border border-amber-500/30 text-amber-300 hover:bg-amber-500/25 rounded-full whitespace-nowrap transition-colors shrink-0"
             >
-              Horarios de Atención
+              10% de Descuento
             </button>
             <button
               onClick={() => handleQuickQuestion('¿Cómo puedo verificar si una pieza es compatible con mi auto?')}
